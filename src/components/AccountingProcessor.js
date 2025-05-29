@@ -94,7 +94,7 @@ const AccountingProcessor = () => {
   };
 
   const { totalDebit, totalCredit } = calculateTotals();
-  const isBalanced = totalDebit === totalCredit;
+  const isBalanced = Math.abs(totalDebit - totalCredit) < 0.0001; //tolerancia de 0.0001 al detectar que algunos asientos a pesar de estar balanceados generaban error de desbalanceo por esta pequeña diferencia decimal
 
   return (
     <div className="space-y-6">
